@@ -1,6 +1,6 @@
 const path = require("path");
 
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const FaviconsPlugin = require("webpack-favicons");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 if (!["development", "production"].includes(process.env.NODE_ENV)) {
@@ -18,7 +18,9 @@ module.exports = {
         description: "TypeScript Monorepo",
       },
     }),
-    // new FaviconsWebpackPlugin("logo.svg"),
+    new FaviconsPlugin({
+      src: "logo.svg",
+    }),
   ],
   output: {
     filename: "bundle.js",
