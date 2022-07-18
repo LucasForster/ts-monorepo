@@ -14,8 +14,10 @@
     "watch": "tsc -w --preserveWatchOutput",
     "serve": "cd frontend; webpack serve",
     "demon": "nodemon dist/backend",
-    "prebuild": "rm -rf build dist; tsc",
-    "build": "cd frontend; NODE_ENV=production webpack"
+    "format": "prettier --write . '!package-lock.json' --ignore-path .gitignore",
+    "lint": "eslint",
+    "prebuild": "npm run format; npm run lint; rm -rf build dist",
+    "build": "tsc; cd frontend; NODE_ENV=production webpack"
   },
   "dependencies": {
     "@types/node": "^18.0.6",
