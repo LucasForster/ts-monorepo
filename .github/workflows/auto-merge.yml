@@ -4,6 +4,9 @@ on: pull_request
 
 jobs:
   enable-auto-merge:
+    permissions:
+      pull-requests: write
+
     runs-on: ubuntu-latest
 
     # Specifically check that dependabot (or another trusted party) created this pull-request.
