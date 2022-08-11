@@ -1,17 +1,13 @@
 name: Auto-Merge
 
-# https://github.com/marketplace/actions/enable-github-automerge#2-usage
-
-on:
-  pull_request_target:
-    types: [labeled]
+on: pull_request
 
 jobs:
   enable-auto-merge:
     runs-on: ubuntu-latest
 
-    # Specifically check that dependabot (or another trusted party) created this pull-request, and that it has been labelled correctly.
-    if: github.event.pull_request.user.login == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'dependencies')
+    # Specifically check that dependabot (or another trusted party) created this pull-request.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - uses: alexwilson/enable-github-automerge-action@main
         with:
