@@ -1,11 +1,12 @@
 name: Auto-Merge
 
-on: pull_request
+on:
+  pull_request_target:
+    types: [labeled]
 
 jobs:
   enable-auto-merge:
-    permissions:
-      pull-requests: write
+    permissions: write-all
 
     runs-on: ubuntu-latest
 
