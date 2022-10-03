@@ -21,7 +21,7 @@
     "build": "tsc; cd frontend; NODE_ENV=production webpack"
   },
   "dependencies": {
-    "@types/node": "^18.7.1",
+    "@types/node": "^18.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
